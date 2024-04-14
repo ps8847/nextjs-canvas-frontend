@@ -1,38 +1,44 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Basic Drawing Canvas Next.js
 
-## Getting Started
+## Overview
 
-First, run the development server:
+The Basic Drawing Canvas Next.js project is a simple drawing canvas application created with Next.js. It provides basic functionality for drawing along lines, sketches with brush size options, undo, redo, eraser, and download options.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+## Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Drawing Canvas**: Provides a canvas for users to draw along lines and sketches.
+- **Brush Size Options**: Offers options to adjust the size of the brush for drawing.
+- **Undo and Redo**: Allows users to undo and redo drawing actions.
+- **Eraser**: Provides an eraser option to erase specific parts of the drawing.
+- **Download**: Enables users to download their drawings as image files.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## Technologies Used
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+- **Next.js**: React-based framework for building server-side rendered web applications.
+- **HTML Canvas**: HTML element used for drawing graphics on a web page.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## How to Use
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+To use the Basic Drawing Canvas Next.js application, follow these steps:
 
-## Learn More
+1. **Access the Live Link**: Visit the live link provided for the application:
+   [Basic Drawing Canvas Next.js](https://nextjs-canvas-frontend.vercel.app)
 
-To learn more about Next.js, take a look at the following resources:
+2. **Interact with the Drawing Canvas**: Explore the various drawing tools and functionalities provided by the application, including brush size options, undo, redo, eraser, and download.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. **Drawing Options**:
+   - Use the brush tool to draw along lines and sketches.
+   - Adjust the brush size using the provided options.
+   - Undo and redo drawing actions as needed.
+   - Erase specific parts of the drawing using the eraser tool.
+   - Download the drawing as an image file.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+4. **Enjoy Drawing**: Let your creativity flow and enjoy drawing on the canvas!
 
-## Deploy on Vercel
+## Support
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+For any inquiries or assistance regarding the Basic Drawing Canvas Next.js application, feel free to reach out via the GitHub repository.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## License
+
+This project is licensed under the [MIT License](LICENSE).
