@@ -164,6 +164,21 @@ const Board = ({ roomId, userName, userColor }) => {
         toolRef.current = { activeMenuItem, color, size, fill }
     }, [activeMenuItem, color, size, fill])
 
+    // Renaming after the initial join: update the ref locally and let the
+    // server know via the same joinRoom handler (it just overwrites the
+    // existing user entry), without tearing down the room-join effect below.
+    const hasJoined = useRef(false)
+    useEffect(() => {
+        if (!hasJoined.current) {
+            hasJoined.current = true
+            return
+        }
+        userRef.current = { name: userName, color: userColor }
+        if (socket.connected) {
+            socket.emit('joinRoom', { roomId, name: userName, color: userColor })
+        }
+    }, [userName, userColor, roomId])
+
     // Join the room and wire up presence + history replay.
     useEffect(() => {
         if (!roomId || !canvasRef.current) return

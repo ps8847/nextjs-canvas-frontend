@@ -6,6 +6,7 @@ import Toolbox from "@/components/Toolbox"
 import Board from "@/components/Board"
 import Chat from "@/components/Chat"
 import JoinModal from "@/components/JoinModal"
+import RoomInfo from "@/components/RoomInfo"
 import { CURSOR_COLORS } from "@/constants"
 
 const NAME_STORAGE_KEY = 'sketch_username'
@@ -38,6 +39,7 @@ export default function Room() {
 
   return (
     <>
+      <RoomInfo roomId={roomId} userName={name} userColor={color} onRename={handleJoin} />
       <Menu />
       <Toolbox />
       <Board roomId={roomId} userName={name} userColor={color} />

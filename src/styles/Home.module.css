@@ -1,0 +1,104 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: theme('colors.background1');
+}
+
+.card {
+    width: 340px;
+    max-width: 90vw;
+    padding: 32px;
+    border-radius: 12px;
+    border: 1px solid theme('colors.border1');
+    box-shadow: theme('colors.shadow1');
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+}
+
+.title {
+    font-size: 24px;
+    font-weight: 700;
+    color: theme('colors.text1');
+    margin: 0;
+    text-align: center;
+}
+
+.subtitle {
+    font-size: 13px;
+    color: theme('colors.text1');
+    opacity: 0.7;
+    margin: 0 0 10px 0;
+    text-align: center;
+}
+
+.primaryButton {
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    background-color: #4a7dff;
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: theme('colors.text1');
+    opacity: 0.5;
+    font-size: 12px;
+    margin: 6px 0;
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid theme('colors.border1');
+}
+
+.divider span {
+    padding: 0 10px;
+}
+
+.joinForm {
+    display: flex;
+    gap: 8px;
+}
+
+.input {
+    flex: 1;
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid theme('colors.border1');
+    font-size: 14px;
+    outline: none;
+    min-width: 0;
+}
+
+.input:focus {
+    border-color: theme('colors.border2');
+}
+
+.secondaryButton {
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: 1px solid theme('colors.border1');
+    background: transparent;
+    color: theme('colors.text1');
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.secondaryButton:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}

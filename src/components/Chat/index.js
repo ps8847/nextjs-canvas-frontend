@@ -12,12 +12,37 @@ const Chat = ({ selfName }) => {
     const [draft, setDraft] = useState('')
     const [unread, setUnread] = useState(0)
     const listRef = useRef(null)
+    const openRef = useRef(open)
+    useEffect(() => { openRef.current = open }, [open])
+
+    // Ask for OS notification permission once, up front - the browser will
+    // silently ignore this if the user already answered before.
+    useEffect(() => {
+        if (typeof window === 'undefined' || !('Notification' in window)) return
+        if (Notification.permission === 'default') Notification.requestPermission()
+    }, [])
 
     useEffect(() => {
         const handleHistory = (history) => setMessages(history)
         const handleMessage = (message) => {
             setMessages((prev) => [...prev, message])
-            setUnread((prev) => (open ? prev : prev + 1))
+
+            const isSelf = message.name === selfName
+            const isUnseen = !openRef.current || document.hidden
+            if (!isSelf && isUnseen) {
+                setUnread((prev) => prev + 1)
+
+                if (typeof window !== 'undefined' && 'Notification' in window && Notification.permission === 'granted') {
+                    const notification = new Notification(`${message.name} says:`, {
+                        body: message.text,
+                        tag: 'sketchbook-chat', // collapses rapid-fire messages into one OS notification
+                    })
+                    notification.onclick = () => {
+                        window.focus()
+                        setOpen(true)
+                    }
+                }
+            }
         }
 
         socket.on('chatHistory', handleHistory)
@@ -27,10 +52,17 @@ const Chat = ({ selfName }) => {
             socket.off('chatHistory', handleHistory)
             socket.off('chatMessage', handleMessage)
         }
-    }, [open])
+    }, [selfName])
 
+    // Mark everything read when the panel is opened, and again if the tab
+    // regains focus while it's already open (messages that arrived while
+    // backgrounded shouldn't stay "unread" forever).
     useEffect(() => {
-        if (open) setUnread(0)
+        if (!open) return
+        setUnread(0)
+        const handleVisibility = () => { if (!document.hidden) setUnread(0) }
+        document.addEventListener('visibilitychange', handleVisibility)
+        return () => document.removeEventListener('visibilitychange', handleVisibility)
     }, [open])
 
     useEffect(() => {
