@@ -1,13 +1,16 @@
-import Menu from "@/components/Menu"
-import Toolbox from "@/components/Toolbox"
-import Board from "@/components/Board"
+import { useEffect } from 'react'
+import { useRouter } from 'next/router'
+
+// Every visit to "/" starts a fresh room and hands the shareable URL off
+// to [roomId].js - anyone who opens that link joins the same session.
+const generateRoomId = () => Math.random().toString(36).slice(2, 9)
 
 export default function Home() {
-  return (
-    <>
-      <Menu />
-      <Toolbox />
-      <Board />
-    </>
-  )
+  const router = useRouter()
+
+  useEffect(() => {
+    router.replace(`/${generateRoomId()}`)
+  }, [router])
+
+  return null
 }

@@ -1,0 +1,82 @@
+.boardContainer {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.previewCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+.cursor {
+    position: fixed;
+    z-index: 50;
+    pointer-events: none;
+    transform: translate(-2px, -2px);
+}
+
+.cursorDot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px white;
+}
+
+.cursorLabel {
+    margin-top: 2px;
+    padding: 1px 6px;
+    border-radius: 3px;
+    font-size: 11px;
+    color: white;
+    white-space: nowrap;
+}
+
+.eraserCursor {
+    display: none;
+    position: fixed;
+    z-index: 15;
+    pointer-events: none;
+    border-radius: 50%;
+    border: 1.5px solid #333;
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+.zoomControls {
+    position: fixed;
+    left: 20px;
+    bottom: 20px;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: theme('colors.background1');
+    border: 1px solid theme('colors.border1');
+    box-shadow: theme('colors.shadow1');
+}
+
+.zoomButton {
+    height: 36px;
+    min-width: 36px;
+    padding: 0 10px;
+    border: none;
+    background: transparent;
+    color: theme('colors.text1');
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.zoomButton:hover {
+    background-color: theme('colors.text2');
+}

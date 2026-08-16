@@ -1,0 +1,64 @@
+.overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.35);
+}
+
+.card {
+    width: 320px;
+    max-width: 90vw;
+    padding: 24px;
+    border-radius: 10px;
+    background-color: theme('colors.background1');
+    border: 1px solid theme('colors.border1');
+    box-shadow: theme('colors.shadow1');
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.title {
+    font-size: 18px;
+    font-weight: 600;
+    color: theme('colors.text1');
+    margin: 0;
+}
+
+.subtitle {
+    font-size: 12px;
+    color: theme('colors.text1');
+    opacity: 0.7;
+    margin: 0 0 6px 0;
+}
+
+.input {
+    padding: 10px 12px;
+    border-radius: 6px;
+    border: 1px solid theme('colors.border1');
+    font-size: 14px;
+    outline: none;
+}
+
+.input:focus {
+    border-color: theme('colors.border2');
+}
+
+.button {
+    margin-top: 4px;
+    padding: 10px 12px;
+    border-radius: 6px;
+    border: none;
+    background-color: #4a7dff;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
